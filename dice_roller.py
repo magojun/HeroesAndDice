@@ -1,5 +1,12 @@
 import random
+import pandas as pd
 from copy import copy
+
+
+def get_pairs_combination_plus_2_2():
+    pairs_combination = get_pairs_combination()
+    two_2s = [2, 2]
+    return [two_2s, pairs_combination]
 
 
 def roll_die():
@@ -56,6 +63,24 @@ def has_combination(dice_roll, dice_combination):
     return True if combination_found == dice_combination else False
 
 
+def get_statistics(dice_combinations):
+    # TODO Untested.
+    results = []
+    for i in range(2000000):
+        print("Reached:", i) if i == 100000 else None
+        print("Reached:", i) if i == 500000 else None
+        print("Reached:", i) if i == 800000 else None
+        print("Reached:", i) if i == 1000000 else None
+        print("Reached:", i) if i == 1200000 else None
+        print("Reached:", i) if i == 1500000 else None
+        print("Reached:", i) if i == 1800000 else None
+        results.append(has_all_combinations(roll_dice(), dice_combinations))
+    statistics_series = pd.Series(results)
+    average = round(statistics_series.mean() * 100, 2)
+    print("Average is: %s%%" % average)
+    print("Number of iterations:", statistics_series.count())
+    return statistics_series
+
+
 if __name__ == '__main__':
-    for n in range(10):
-        roll_dice()
+    get_statistics(get_pairs_combination_plus_2_2())

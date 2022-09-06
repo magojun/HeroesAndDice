@@ -49,6 +49,11 @@ class TestDiceRoller(unittest.TestCase):
         pairs_combination_result = dice_roller.get_pairs_combination()
         self.assertEqual(pairs_combination_expected, pairs_combination_result)
 
+    def test_get_pairs_combination_plus_2_2_returns_correct_combination(self):
+        pairs_combination_expected = [[2, 2], [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6]]]
+        pairs_combination_result = dice_roller.get_pairs_combination_plus_2_2()
+        self.assertEqual(pairs_combination_expected, pairs_combination_result)
+
     @parameterized.expand([
         [[1, 2, 3, 1, 6]],
         [[2, 1, 3, 2, 6]],
@@ -99,7 +104,7 @@ class TestDiceRoller(unittest.TestCase):
     def test_has_pairs_combination_plus_2_2_returns_true_with_adequate_dice_roll(self, dice_roll):
         pairs_combination = dice_roller.get_pairs_combination()
         two_2s = [2, 2]
-        expected_combinations = [two_2s, pairs_combination]
+        expected_combinations = dice_roller.get_pairs_combination_plus_2_2()
         has_pairs = dice_roller.has_at_least_one_combination(dice_roll, pairs_combination)
         has_two_2s = dice_roller.has_combination(dice_roll, two_2s)
         has_expected_combination = dice_roller.has_all_combinations(dice_roll, expected_combinations)
@@ -118,7 +123,7 @@ class TestDiceRoller(unittest.TestCase):
     def test_has_pairs_combination_plus_2_2_returns_false_with_dice_roll_that_does_not_contains_2_2(self, dice_roll):
         pairs_combination = dice_roller.get_pairs_combination()
         two_2s = [2, 2]
-        expected_combinations = [two_2s, pairs_combination]
+        expected_combinations = dice_roller.get_pairs_combination_plus_2_2()
         has_pairs = dice_roller.has_at_least_one_combination(dice_roll, pairs_combination)
         has_two_2s = dice_roller.has_combination(dice_roll, two_2s)
         has_expected_combination = dice_roller.has_all_combinations(dice_roll, expected_combinations)
