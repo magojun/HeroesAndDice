@@ -66,12 +66,12 @@ class TestDiceRoller(unittest.TestCase):
         self.assertEqual(pairs_combination_expected, pairs_combination_result)
 
     @parameterized.expand([
-        [[1, 2, 3, 1, 6], [1, 1]],
-        [[2, 1, 3, 2, 6], [2, 2]],
-        [[3, 1, 2, 3, 6], [3, 3]],
-        [[4, 1, 2, 4, 6], [4, 4]],
-        [[5, 1, 3, 5, 6], [5, 5]],
-        [[6, 1, 3, 2, 6], [6, 6]],
+        [[1, 2, 3, 1, 6], [[1, 1]]],
+        [[2, 1, 3, 2, 6], [[2, 2]]],
+        [[3, 1, 2, 3, 6], [[3, 3]]],
+        [[4, 1, 2, 4, 6], [[4, 4]]],
+        [[5, 1, 3, 5, 6], [[5, 5]]],
+        [[6, 1, 3, 2, 6], [[6, 6]]],
         [[1, 2, 3, 4, 5], []],
         [[2, 3, 4, 5, 6], []]
     ])
@@ -159,7 +159,7 @@ class TestDiceRoller(unittest.TestCase):
 
     @parameterized.expand([
         [[2, 6, 2, 4, 1]],
-        [[3, 6, 2, 3, 2]],
+        [[3, 6, 2, 1, 2]],
         [[2, 2, 2, 5, 1]]
     ])
     def test_has_pairs_combination_plus_2_2_returns_false_with_dice_roll_that_only_contains_2_2_but_no_other_pair(self,

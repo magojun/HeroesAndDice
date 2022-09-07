@@ -36,9 +36,15 @@ def get_pairs_combination():
     pairs_combination.append(six_pairs)
     return pairs_combination
 
+
 def found_combinations(dice_roll, dice_combinations):
-    return any([has_combination(dice_roll, combination)
-                for combination in dice_combinations])
+    combinations_found = []
+    for combination in dice_combinations:
+        result = find_combination(dice_roll, combination)
+        if type(result) is list and len(result) > 0:
+            combinations_found.append(result)
+    return combinations_found
+
 
 def has_at_least_one_combination(dice_roll, dice_combinations):
     return any([has_combination(dice_roll, combination)
@@ -46,19 +52,28 @@ def has_at_least_one_combination(dice_roll, dice_combinations):
 
 
 def has_all_combinations(dice_roll, dice_combinations):
-    #dice_roll = copy(dice_roll)  # Avoid updating the actual dictionary elements.
-    #for combination in dice_combinations:
-    #    if any(isinstance(element, list) for element in combination):
-    #        result = has_at_least_one_combination(dice_roll, combination)
-    #    else:
-    #        result = has_combination(dice_roll, combination)
-    #    if result:
-    #        dice_roll.remove(combination)
-    #return result
-    return all([has_at_least_one_combination(dice_roll, combination)
-                if any(isinstance(combination_set, list) for combination_set in combination)
-                else has_combination(dice_roll, combination)
-                for combination in dice_combinations])
+    # TODO - some refactoring would improve this method.
+    dice_roll = copy(dice_roll)  # Avoid updating the actual dictionary elements.
+    combinations_found = []
+    any_problem = False
+    for combination in dice_combinations:
+        if any(isinstance(combination_set, list) for combination_set in combination):
+            combinations_found.append(found_combinations(dice_roll, combination))
+            if has_at_least_one_combination(dice_roll, combination) is False:
+                any_problem = True
+        else:
+            result_found = find_combination(dice_roll, combination)
+            combinations_found.append(find_combination(dice_roll, combination))
+            if has_combination(dice_roll, combination) is False:
+                any_problem = True
+            if type(result_found) is list and len(result_found) > 0:
+                # TODO - take this to an external function.
+                for result in result_found:
+                    for die in dice_roll:
+                        if result == die:
+                            dice_roll.remove(die)
+                            break
+    return True if any_problem is False else False
 
 def find_combination(dice_roll, dice_combination):
     dice_roll = copy(dice_roll)  # Avoid updating the actual dictionary elements.
@@ -69,7 +84,7 @@ def find_combination(dice_roll, dice_combination):
                 dice_roll.remove(die)
                 combination_found.append(die)
                 break
-    return combination_found
+    return combination_found if combination_found == dice_combination else []
 
 def has_combination(dice_roll, dice_combination):
     """
