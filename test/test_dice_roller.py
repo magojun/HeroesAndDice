@@ -54,6 +54,11 @@ class TestDiceRoller(unittest.TestCase):
         pairs_combination_result = dice_roller.get_pairs_combination()
         self.assertEqual(pairs_combination_expected, pairs_combination_result)
 
+    def test_get_smallers_combination_returns_correct_combination(self):
+        smallers_combination_expected = [[1], [2], [3]]
+        smallers_combination_result = dice_roller.get_smallers_combination()
+        self.assertEqual(smallers_combination_expected, smallers_combination_result)
+
     @parameterized.expand([
         [[2, 2]],
         [[1, 2, 3]],
@@ -162,8 +167,7 @@ class TestDiceRoller(unittest.TestCase):
         [[3, 6, 2, 1, 2]],
         [[2, 2, 2, 5, 1]]
     ])
-    def test_has_pairs_combination_plus_2_2_returns_false_with_dice_roll_that_only_contains_2_2_but_no_other_pair(self,
-                                                                                                    dice_roll):
+    def test_has_pairs_combination_plus_2_2_returns_false_with_dice_roll_that_only_contains_2_2_but_no_other_pair(self,                                                                                            dice_roll):
         pairs_combination = dice_roller.get_pairs_combination()
         two_2s = [2, 2]
         expected_combinations = dice_roller.get_pairs_combination_plus_another_combination(two_2s)
@@ -173,6 +177,43 @@ class TestDiceRoller(unittest.TestCase):
         self.assertTrue(has_pairs)
         self.assertTrue(has_two_2s)
         self.assertFalse(has_expected_combination)
+
+    @parameterized.expand([
+        [[1, 5, 5, 5, 1]],
+        [[4, 6, 4, 3, 3]],
+        [[2, 6, 5, 5, 1]],
+        [[3, 3, 3, 3, 3]],
+        [[1, 2, 4, 4, 6]]
+    ])
+    def test_has_two_smallers_returns_true_with_adequate_dice_roll(self, dice_roll):
+        smallers_combination = dice_roller.get_smallers_combination()
+        two_smallers_combination = [smallers_combination, smallers_combination]
+        has_one_smaller = dice_roller.has_at_least_one_combination(dice_roll, smallers_combination)
+        has_two_smallers = dice_roller.has_all_combinations(dice_roll, two_smallers_combination)
+        self.assertTrue(has_one_smaller)
+        self.assertTrue(has_two_smallers)
+
+    @parameterized.expand([
+        [[5, 4, 6, 4, 1]],
+        [[5, 6, 4, 3, 4]],
+        [[6, 6, 6, 6, 1]]
+    ])
+    def test_has_two_smaller_returns_false_with_no_two_smallers_in_the_dice_roll(self, dice_roll):
+        smallers_combination = dice_roller.get_smallers_combination()
+        two_smallers_combination = [smallers_combination, smallers_combination]
+        has_two_smallers = dice_roller.has_all_combinations(dice_roll, two_smallers_combination)
+        self.assertFalse(has_two_smallers)
+
+    @parameterized.expand([
+        [[5, 1, 3, 4, 1]],
+        [[3, 3, 3, 3, 1]],
+        [[5, 6, 3, 2, 1]]
+    ])
+    def test_has_three_smaller_returns_true_with_adequate_dice_roll(self, dice_roll):
+        smallers_combination = dice_roller.get_smallers_combination()
+        three_smallers_combination = [smallers_combination, smallers_combination, smallers_combination]
+        has_three_smallers = dice_roller.has_all_combinations(dice_roll, three_smallers_combination)
+        self.assertTrue(has_three_smallers)
 
 
 if __name__ == '__main__':

@@ -37,6 +37,10 @@ def get_pairs_combination():
     return pairs_combination
 
 
+def get_smallers_combination():
+    return [[1], [2], [3]]
+
+
 def found_combinations(dice_roll, dice_combinations):
     combinations_found = []
     for combination in dice_combinations:
@@ -58,12 +62,23 @@ def has_all_combinations(dice_roll, dice_combinations):
     any_problem = False
     for combination in dice_combinations:
         if any(isinstance(combination_set, list) for combination_set in combination):
-            combinations_found.append(found_combinations(dice_roll, combination))
+            result_found = found_combinations(dice_roll, combination)
+            combinations_found.append(result_found)
             if has_at_least_one_combination(dice_roll, combination) is False:
                 any_problem = True
+            one_case_removed = False
+            for one_result in result_found:
+                if not one_case_removed and type(one_result) is list and len(one_result) > 0:
+                    # TODO - take this to an external function.
+                    for result in one_result:
+                        for die in dice_roll:
+                            if result == die:
+                                dice_roll.remove(die)
+                                one_case_removed = True
+                                break
         else:
             result_found = find_combination(dice_roll, combination)
-            combinations_found.append(find_combination(dice_roll, combination))
+            combinations_found.append(result_found)
             if has_combination(dice_roll, combination) is False:
                 any_problem = True
             if type(result_found) is list and len(result_found) > 0:
@@ -99,10 +114,11 @@ def has_combination(dice_roll, dice_combination):
     return True if find_combination(dice_roll, dice_combination) == dice_combination else False
 
 
-def get_statistics(dice_combinations):
+def get_statistics(dice_combinations, sample=False):
     # TODO Untested.
+    max_range = 10000 if sample is True else 2000000
     results = []
-    for i in range(5):
+    for i in range(max_range):
         print("Reached:", i) if i == 100000 else None
         print("Reached:", i) if i == 500000 else None
         print("Reached:", i) if i == 800000 else None
@@ -111,8 +127,12 @@ def get_statistics(dice_combinations):
         print("Reached:", i) if i == 1500000 else None
         print("Reached:", i) if i == 1800000 else None
         dice = roll_dice()
-        results.append(has_all_combinations(dice, dice_combinations))
-        print(dice)
+        result = has_all_combinations(dice, dice_combinations)
+        if result and i < 1000:
+            print("Positive Case:", dice)
+        if not result and 1000 < i < 2000:
+            print("Negative Case:", dice)
+        results.append(result)
     statistics_series = pd.Series(results)
     if i < 20:
         print(results)
@@ -123,8 +143,5 @@ def get_statistics(dice_combinations):
 
 
 if __name__ == '__main__':
-    get_statistics(get_pairs_combination_plus_another_combination([2, 2]))
-
-
-# 2, 2, plus pairs -> 19%
-#1, 2, 3 + pairs -> 11.19%
+    #get_statistics(get_pairs_combination_plus_another_combination([1, 2, 3]))
+    get_statistics([get_smallers_combination(), get_smallers_combination(), [2, 2]])
