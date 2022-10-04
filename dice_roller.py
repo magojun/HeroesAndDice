@@ -1,7 +1,6 @@
-import random
 import pandas as pd
 from copy import copy
-
+from dice import *
 
 def get_pairs_combination_plus_another_combination(second_dice_combination):
     pairs_combination = get_pairs_combination()
@@ -9,10 +8,10 @@ def get_pairs_combination_plus_another_combination(second_dice_combination):
 
 
 def roll_die():
-    return random.randint(1, 6)
+    return RegularDice()
 
 
-def roll_dice(number_of_dice=5):
+def roll_dice(number_of_dice=5, number_of_special_dice=1):
     dice_roll = []
     for i in range(number_of_dice):
         dice_roll.append(roll_die())

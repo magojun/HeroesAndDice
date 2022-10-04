@@ -19,6 +19,11 @@ class TestDiceRoller(unittest.TestCase):
         dice_roll_result = dice_roller.roll_dice()
         self.assertEqual(5, len(dice_roll_result))
 
+    def test_roll_dice_with_no_parameters_returns_five_dice_and_one_is_a_special_dice(self):
+        dice_roll_result = dice_roller.roll_dice()
+        self.assertTrue(dice_roll_result.has_special_dice())
+        self.assertEqual(5, len(dice_roll_result))
+
     @parameterized.expand([
         [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12]
     ])
