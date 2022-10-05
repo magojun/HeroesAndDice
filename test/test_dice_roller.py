@@ -6,11 +6,11 @@ import dice_roller
 
 class TestDiceRoller(unittest.TestCase):
     
-    def test_roll_die_get_result_between_1_and_6(self):
+    def test_roll_dice_get_result_between_1_and_6(self):
         valid_values = [1, 2, 3, 4, 5, 6]
         for n in range(100):
-            die_result = dice_roller.roll_die()
-            self.assertIn(die_result, valid_values)
+            dice_result = dice_roller.roll_one_die()
+            self.assertIn(dice_result.get_number(), valid_values)
 
     def test_roll_dice_is_using_roll_die_method(self):
         self.assertTrue(True)
@@ -22,6 +22,11 @@ class TestDiceRoller(unittest.TestCase):
     def test_roll_dice_with_no_parameters_returns_five_dice_and_one_is_a_special_dice(self):
         dice_roll_result = dice_roller.roll_dice()
         self.assertTrue(dice_roll_result.has_special_dice())
+        self.assertEqual(5, len(dice_roll_result))
+
+    def test_roll_dice_with_no_special_dice_returns_five_dice_and_none_of_them_is_a_special_dice(self):
+        dice_roll_result = dice_roller.roll_dice(number_of_special_dice=0)
+        self.assertFalse(dice_roll_result.has_special_dice())
         self.assertEqual(5, len(dice_roll_result))
 
     @parameterized.expand([

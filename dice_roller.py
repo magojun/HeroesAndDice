@@ -7,14 +7,17 @@ def get_pairs_combination_plus_another_combination(second_dice_combination):
     return [second_dice_combination, pairs_combination]
 
 
-def roll_die():
-    return RegularDice()
+def roll_one_die(is_special_dice=False):
+    return SpecialDice() if is_special_dice else RegularDice()
 
 
 def roll_dice(number_of_dice=5, number_of_special_dice=1):
-    dice_roll = []
+    dice_roll = DiceList()
+    number_of_dice = number_of_dice - number_of_special_dice
     for i in range(number_of_dice):
-        dice_roll.append(roll_die())
+        dice_roll.append(roll_one_die())
+    for i in range(number_of_special_dice):
+        dice_roll.append(roll_one_die(True))
     return dice_roll
 
 
