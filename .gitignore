@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Game knowledge — PRIVATE, must NOT be published in this public repo.
+# Rules, card data (heroes/objects/beasts) and official card scans.
+# Kept locally so agents/sessions can use them, never committed/pushed.
+docs/
+reglamento-hyd.jpg
