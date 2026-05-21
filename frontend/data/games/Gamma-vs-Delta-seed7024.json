@@ -1,0 +1,220 @@
+{
+  "game_id": "Gamma-vs-Delta-seed7024",
+  "team_a": "Gamma",
+  "team_b": "Delta",
+  "seed": 7024,
+  "winner": "Delta",
+  "total_turns": 2,
+  "is_draw": false,
+  "turns": [
+    {
+      "n": 1,
+      "attacker": "Gamma",
+      "dice": {
+        "green": [
+          5,
+          4,
+          2,
+          6
+        ],
+        "red": 1
+      },
+      "assignments": [
+        {
+          "ability": "Lanza",
+          "hero": 1,
+          "dice_used": [
+            4
+          ]
+        },
+        {
+          "ability": "Bloqueo",
+          "hero": 0,
+          "dice_used": [
+            5
+          ]
+        }
+      ],
+      "damage_total": 12,
+      "defense_dice": [
+        6,
+        1
+      ],
+      "defense_blocked": 1,
+      "damage_dealt": 11,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 22,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 5,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 1,
+      "attacker": "Delta",
+      "dice": {
+        "green": [
+          2,
+          3,
+          3,
+          1
+        ],
+        "red": 3
+      },
+      "assignments": [
+        {
+          "ability": "Hechizo",
+          "hero": 0,
+          "dice_used": [
+            3,
+            3
+          ]
+        },
+        {
+          "ability": "Toque",
+          "hero": 0,
+          "dice_used": [
+            2
+          ]
+        },
+        {
+          "ability": "Daño leve",
+          "hero": 1,
+          "dice_used": [
+            1
+          ]
+        }
+      ],
+      "damage_total": 14,
+      "defense_dice": [
+        3,
+        4,
+        2
+      ],
+      "defense_blocked": 1,
+      "damage_dealt": 13,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 9,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 5,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "attacker": "Gamma",
+      "dice": {
+        "green": [
+          3,
+          3,
+          3,
+          6
+        ],
+        "red": 4
+      },
+      "assignments": [
+        {
+          "ability": "Lanza",
+          "hero": 1,
+          "dice_used": [
+            4
+          ]
+        }
+      ],
+      "damage_total": 6,
+      "defense_dice": [
+        4,
+        4
+      ],
+      "defense_blocked": 2,
+      "damage_dealt": 4,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 9,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 1,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "attacker": "Delta",
+      "dice": {
+        "green": [
+          4,
+          6,
+          4,
+          4
+        ],
+        "red": 4
+      },
+      "assignments": [
+        {
+          "ability": "Hechizo",
+          "hero": 0,
+          "dice_used": [
+            4,
+            4
+          ]
+        }
+      ],
+      "damage_total": 11,
+      "defense_dice": [
+        2,
+        2,
+        5
+      ],
+      "defense_blocked": 1,
+      "damage_dealt": 10,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 0,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 1,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "game_id": "Alpha-vs-Delta-seed4025",
+  "team_a": "Alpha",
+  "team_b": "Delta",
+  "seed": 4025,
+  "winner": "Alpha",
+  "total_turns": 1,
+  "is_draw": false,
+  "turns": [
+    {
+      "n": 1,
+      "attacker": "Alpha",
+      "dice": {
+        "green": [
+          2,
+          3,
+          5,
+          4
+        ],
+        "red": 5
+      },
+      "assignments": [
+        {
+          "ability": "Doble corte",
+          "hero": 0,
+          "dice_used": [
+            3,
+            5
+          ]
+        },
+        {
+          "ability": "Disparo",
+          "hero": 1,
+          "dice_used": [
+            5
+          ]
+        }
+      ],
+      "damage_total": 19,
+      "defense_dice": [
+        4,
+        2
+      ],
+      "defense_blocked": 1,
+      "damage_dealt": 18,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 15,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 0,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        }
+      }
+    }
+  ]
+}

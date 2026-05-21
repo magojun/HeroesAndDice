@@ -1,0 +1,219 @@
+{
+  "game_id": "Beta-vs-Gamma-seed5024",
+  "team_a": "Beta",
+  "team_b": "Gamma",
+  "seed": 5024,
+  "winner": "Gamma",
+  "total_turns": 2,
+  "is_draw": false,
+  "turns": [
+    {
+      "n": 1,
+      "attacker": "Beta",
+      "dice": {
+        "green": [
+          4,
+          4,
+          4,
+          1
+        ],
+        "red": 1
+      },
+      "assignments": [
+        {
+          "ability": "Furia",
+          "hero": 0,
+          "dice_used": [
+            1
+          ]
+        },
+        {
+          "ability": "Daga rápida",
+          "hero": 1,
+          "dice_used": [
+            1
+          ]
+        }
+      ],
+      "damage_total": 9,
+      "defense_dice": [
+        3,
+        5,
+        2
+      ],
+      "defense_blocked": 1,
+      "damage_dealt": 8,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 12,
+          "diamonds": 0,
+          "shields": 0,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 14,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 1,
+      "attacker": "Gamma",
+      "dice": {
+        "green": [
+          4,
+          2,
+          3,
+          4
+        ],
+        "red": 3
+      },
+      "assignments": [
+        {
+          "ability": "Lanza",
+          "hero": 1,
+          "dice_used": [
+            4
+          ]
+        },
+        {
+          "ability": "Bloqueo",
+          "hero": 0,
+          "dice_used": [
+            3
+          ]
+        }
+      ],
+      "damage_total": 10,
+      "defense_dice": [],
+      "defense_blocked": 0,
+      "damage_dealt": 10,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 2,
+          "diamonds": 0,
+          "shields": 0,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 14,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "attacker": "Beta",
+      "dice": {
+        "green": [
+          1,
+          4,
+          3,
+          5
+        ],
+        "red": 2
+      },
+      "assignments": [
+        {
+          "ability": "Furia",
+          "hero": 0,
+          "dice_used": [
+            2
+          ]
+        },
+        {
+          "ability": "Daga rápida",
+          "hero": 1,
+          "dice_used": [
+            1
+          ]
+        }
+      ],
+      "damage_total": 10,
+      "defense_dice": [
+        2,
+        1,
+        3
+      ],
+      "defense_blocked": 0,
+      "damage_dealt": 10,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 2,
+          "diamonds": 0,
+          "shields": 0,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 4,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "attacker": "Gamma",
+      "dice": {
+        "green": [
+          3,
+          5,
+          5,
+          5
+        ],
+        "red": 6
+      },
+      "assignments": [
+        {
+          "ability": "Lanza",
+          "hero": 1,
+          "dice_used": [
+            6
+          ]
+        },
+        {
+          "ability": "Bloqueo",
+          "hero": 0,
+          "dice_used": [
+            5
+          ]
+        }
+      ],
+      "damage_total": 14,
+      "defense_dice": [],
+      "defense_blocked": 0,
+      "damage_dealt": 14,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 0,
+          "diamonds": 0,
+          "shields": 0,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 4,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        }
+      }
+    }
+  ]
+}

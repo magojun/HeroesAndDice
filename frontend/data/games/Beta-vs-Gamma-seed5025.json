@@ -1,0 +1,212 @@
+{
+  "game_id": "Beta-vs-Gamma-seed5025",
+  "team_a": "Beta",
+  "team_b": "Gamma",
+  "seed": 5025,
+  "winner": "Gamma",
+  "total_turns": 2,
+  "is_draw": false,
+  "turns": [
+    {
+      "n": 1,
+      "attacker": "Beta",
+      "dice": {
+        "green": [
+          3,
+          1,
+          4,
+          2
+        ],
+        "red": 1
+      },
+      "assignments": [
+        {
+          "ability": "Furia",
+          "hero": 0,
+          "dice_used": [
+            1
+          ]
+        },
+        {
+          "ability": "Embate",
+          "hero": 0,
+          "dice_used": [
+            2
+          ]
+        },
+        {
+          "ability": "Daga rápida",
+          "hero": 1,
+          "dice_used": [
+            1
+          ]
+        }
+      ],
+      "damage_total": 14,
+      "defense_dice": [
+        3,
+        3,
+        5
+      ],
+      "defense_blocked": 1,
+      "damage_dealt": 13,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 12,
+          "diamonds": 0,
+          "shields": 0,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 9,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 1,
+      "attacker": "Gamma",
+      "dice": {
+        "green": [
+          5,
+          1,
+          1,
+          3
+        ],
+        "red": 3
+      },
+      "assignments": [
+        {
+          "ability": "Lanza",
+          "hero": 1,
+          "dice_used": [
+            3
+          ]
+        },
+        {
+          "ability": "Bloqueo",
+          "hero": 0,
+          "dice_used": [
+            5
+          ]
+        }
+      ],
+      "damage_total": 11,
+      "defense_dice": [],
+      "defense_blocked": 0,
+      "damage_dealt": 11,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 1,
+          "diamonds": 0,
+          "shields": 0,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 9,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "attacker": "Beta",
+      "dice": {
+        "green": [
+          5,
+          3,
+          3,
+          4
+        ],
+        "red": 3
+      },
+      "assignments": [
+        {
+          "ability": "Furia",
+          "hero": 0,
+          "dice_used": [
+            3
+          ]
+        }
+      ],
+      "damage_total": 8,
+      "defense_dice": [
+        4,
+        5,
+        5
+      ],
+      "defense_blocked": 3,
+      "damage_dealt": 5,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 1,
+          "diamonds": 0,
+          "shields": 0,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 4,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "attacker": "Gamma",
+      "dice": {
+        "green": [
+          2,
+          6,
+          3,
+          2
+        ],
+        "red": 2
+      },
+      "assignments": [
+        {
+          "ability": "Lanza",
+          "hero": 1,
+          "dice_used": [
+            2
+          ]
+        }
+      ],
+      "damage_total": 4,
+      "defense_dice": [],
+      "defense_blocked": 0,
+      "damage_dealt": 4,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 0,
+          "diamonds": 0,
+          "shields": 0,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 4,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        }
+      }
+    }
+  ]
+}

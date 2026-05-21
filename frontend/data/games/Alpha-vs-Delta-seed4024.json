@@ -1,0 +1,159 @@
+{
+  "game_id": "Alpha-vs-Delta-seed4024",
+  "team_a": "Alpha",
+  "team_b": "Delta",
+  "seed": 4024,
+  "winner": "Alpha",
+  "total_turns": 2,
+  "is_draw": false,
+  "turns": [
+    {
+      "n": 1,
+      "attacker": "Alpha",
+      "dice": {
+        "green": [
+          3,
+          6,
+          1,
+          4
+        ],
+        "red": 3
+      },
+      "assignments": [
+        {
+          "ability": "Doble corte",
+          "hero": 0,
+          "dice_used": [
+            3,
+            3
+          ]
+        }
+      ],
+      "damage_total": 10,
+      "defense_dice": [
+        1,
+        6
+      ],
+      "defense_blocked": 1,
+      "damage_dealt": 9,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 15,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 7,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 1,
+      "attacker": "Delta",
+      "dice": {
+        "green": [
+          4,
+          4,
+          4,
+          5
+        ],
+        "red": 4
+      },
+      "assignments": [
+        {
+          "ability": "Hechizo",
+          "hero": 0,
+          "dice_used": [
+            4,
+            4
+          ]
+        }
+      ],
+      "damage_total": 11,
+      "defense_dice": [
+        2,
+        6
+      ],
+      "defense_blocked": 1,
+      "damage_dealt": 10,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 5,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 7,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "attacker": "Alpha",
+      "dice": {
+        "green": [
+          3,
+          6,
+          3,
+          4
+        ],
+        "red": 5
+      },
+      "assignments": [
+        {
+          "ability": "Doble corte",
+          "hero": 0,
+          "dice_used": [
+            3,
+            3
+          ]
+        },
+        {
+          "ability": "Tajo",
+          "hero": 0,
+          "dice_used": [
+            5
+          ]
+        }
+      ],
+      "damage_total": 17,
+      "defense_dice": [
+        5,
+        2
+      ],
+      "defense_blocked": 1,
+      "damage_dealt": 16,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 5,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 0,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "game_id": "Alpha-vs-Beta-seed2024",
+  "team_a": "Alpha",
+  "team_b": "Beta",
+  "seed": 2024,
+  "winner": "Alpha",
+  "total_turns": 1,
+  "is_draw": false,
+  "turns": [
+    {
+      "n": 1,
+      "attacker": "Alpha",
+      "dice": {
+        "green": [
+          4,
+          2,
+          6,
+          5
+        ],
+        "red": 3
+      },
+      "assignments": [
+        {
+          "ability": "Tajo",
+          "hero": 0,
+          "dice_used": [
+            3
+          ]
+        },
+        {
+          "ability": "Disparo",
+          "hero": 1,
+          "dice_used": [
+            5
+          ]
+        }
+      ],
+      "damage_total": 12,
+      "defense_dice": [],
+      "defense_blocked": 0,
+      "damage_dealt": 12,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 15,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 0,
+          "diamonds": 0,
+          "shields": 0,
+          "statuses": [],
+          "items": []
+        }
+      }
+    }
+  ]
+}
