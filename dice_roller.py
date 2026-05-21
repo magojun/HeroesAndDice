@@ -1,99 +1,42 @@
-import pandas as pd
+"""
+dice_roller.py — API de compatibilidad (F4).
+
+Las funciones de este módulo siguen disponibles para no romper código existente.
+En código nuevo, usar heroesydados.dice.model.DiceRoll directamente:
+
+    from heroesydados.dice.model import DiceRoll
+    roll = DiceRoll.roll(seed=42)   # 4 verdes + 1 rojo, reproducible
+
+Mapa de equivalencias (legacy → nuevo):
+  roll_dice(5, 1)  →  DiceRoll.roll()
+  has_combination  →  (sin equivalente directo; lógica de GreedyPolicy en ai/)
+"""
+from __future__ import annotations
+
 from copy import copy
-from dice import *
-
-def get_pairs_combination_plus_another_combination(second_dice_combination):
-    pairs_combination = get_pairs_combination()
-    return [second_dice_combination, pairs_combination]
+from dice import DiceList, RegularDice, SpecialDice
 
 
-def roll_one_die(is_special_dice=False):
+def roll_one_die(is_special_dice: bool = False):
     return SpecialDice() if is_special_dice else RegularDice()
 
 
-def roll_dice(number_of_dice=5, number_of_special_dice=1):
+def roll_dice(number_of_dice: int = 5, number_of_special_dice: int = 1) -> DiceList:
+    """
+    Lanza number_of_dice dados, de los cuales number_of_special_dice son rojos.
+    Devuelve DiceList (API heredada). En código nuevo preferir DiceRoll.roll().
+    """
     dice_roll = DiceList()
-    number_of_dice = number_of_dice - number_of_special_dice
-    for i in range(number_of_dice):
+    regular_count = number_of_dice - number_of_special_dice
+    for _ in range(regular_count):
         dice_roll.append(roll_one_die())
-    for i in range(number_of_special_dice):
+    for _ in range(number_of_special_dice):
         dice_roll.append(roll_one_die(True))
     return dice_roll
 
 
-def get_pairs_combination():
-    pairs_combination = []
-    one_pairs = [1, 1]
-    two_pairs = [2, 2]
-    three_pairs = [3, 3]
-    four_pairs = [4, 4]
-    five_pairs = [5, 5]
-    six_pairs = [6, 6]
-
-    pairs_combination.append(one_pairs)
-    pairs_combination.append(two_pairs)
-    pairs_combination.append(three_pairs)
-    pairs_combination.append(four_pairs)
-    pairs_combination.append(five_pairs)
-    pairs_combination.append(six_pairs)
-    return pairs_combination
-
-
-def get_smallers_combination():
-    return [[1], [2], [3]]
-
-
-def found_combinations(dice_roll, dice_combinations):
-    combinations_found = []
-    for combination in dice_combinations:
-        result = find_combination(dice_roll, combination)
-        if type(result) is list and len(result) > 0:
-            combinations_found.append(result)
-    return combinations_found
-
-
-def has_at_least_one_combination(dice_roll, dice_combinations):
-    return any([has_combination(dice_roll, combination)
-                for combination in dice_combinations])
-
-
-def has_all_combinations(dice_roll, dice_combinations):
-    # TODO - some refactoring would improve this method.
-    dice_roll = copy(dice_roll)  # Avoid updating the actual dictionary elements.
-    combinations_found = []
-    any_problem = False
-    for combination in dice_combinations:
-        if any(isinstance(combination_set, list) for combination_set in combination):
-            result_found = found_combinations(dice_roll, combination)
-            combinations_found.append(result_found)
-            if has_at_least_one_combination(dice_roll, combination) is False:
-                any_problem = True
-            one_case_removed = False
-            for one_result in result_found:
-                if not one_case_removed and type(one_result) is list and len(one_result) > 0:
-                    # TODO - take this to an external function.
-                    for result in one_result:
-                        for die in dice_roll:
-                            if result == die:
-                                dice_roll.remove(die)
-                                one_case_removed = True
-                                break
-        else:
-            result_found = find_combination(dice_roll, combination)
-            combinations_found.append(result_found)
-            if has_combination(dice_roll, combination) is False:
-                any_problem = True
-            if type(result_found) is list and len(result_found) > 0:
-                # TODO - take this to an external function.
-                for result in result_found:
-                    for die in dice_roll:
-                        if result == die:
-                            dice_roll.remove(die)
-                            break
-    return True if any_problem is False else False
-
-def find_combination(dice_roll, dice_combination):
-    dice_roll = copy(dice_roll)  # Avoid updating the actual dictionary elements.
+def find_combination(dice_roll: DiceList, dice_combination: list) -> list:
+    dice_roll = copy(dice_roll)
     combination_found = []
     for combination in dice_combination:
         for die in dice_roll:
@@ -103,47 +46,65 @@ def find_combination(dice_roll, dice_combination):
                 break
     return combination_found if combination_found == dice_combination else []
 
-def has_combination(dice_roll, dice_combination):
-    """
-    Receives a dice roll list and a list with a dice combination.
-    I you require a list of lists with several dice combinations,
-    use :meth:has_all_combinations or :meth:has_at_least_one_combination
-    :param dice_roll:
-    :param dice_combination:
-    :return: Returns true if the dice combination is present in the dice roll.
-    """
-    # TODO if it's a list of lists fail -> if any(isinstance(combination, list) for combination in dice_combination): throw error
-    return True if find_combination(dice_roll, dice_combination) == dice_combination else False
+
+def has_combination(dice_roll: DiceList, dice_combination: list) -> bool:
+    return find_combination(dice_roll, dice_combination) == dice_combination
 
 
-def get_statistics(dice_combinations, sample=False):
-    # TODO Untested.
-    max_range = 10000 if sample is True else 2000000
-    results = []
-    for i in range(max_range):
-        print("Reached:", i) if i == 100000 else None
-        print("Reached:", i) if i == 500000 else None
-        print("Reached:", i) if i == 800000 else None
-        print("Reached:", i) if i == 1000000 else None
-        print("Reached:", i) if i == 1200000 else None
-        print("Reached:", i) if i == 1500000 else None
-        print("Reached:", i) if i == 1800000 else None
-        dice = roll_dice()
-        result = has_all_combinations(dice, dice_combinations)
-        if result and i < 1000:
-            print("Positive Case:", dice)
-        if not result and 1000 < i < 2000:
-            print("Negative Case:", dice)
-        results.append(result)
-    statistics_series = pd.Series(results)
-    if i < 20:
-        print(results)
-    average = round(statistics_series.mean() * 100, 2)
-    print("Average is: %s%%" % average)
-    print("Number of iterations:", statistics_series.count())
-    return statistics_series
+def has_at_least_one_combination(dice_roll, dice_combinations) -> bool:
+    return any(has_combination(dice_roll, c) for c in dice_combinations)
 
 
-if __name__ == '__main__':
-    #get_statistics(get_pairs_combination_plus_another_combination([1, 2, 3]))
-    get_statistics([get_smallers_combination(), get_smallers_combination(), [2, 2]])
+def found_combinations(dice_roll, dice_combinations) -> list:
+    combinations_found = []
+    for combination in dice_combinations:
+        result = find_combination(dice_roll, combination)
+        if isinstance(result, list) and result:
+            combinations_found.append(result)
+    return combinations_found
+
+
+def has_all_combinations(dice_roll, dice_combinations) -> bool:
+    dice_roll = copy(dice_roll)
+    any_problem = False
+    for combination in dice_combinations:
+        if any(isinstance(s, list) for s in combination):
+            if not has_at_least_one_combination(dice_roll, combination):
+                any_problem = True
+            result_found = found_combinations(dice_roll, combination)
+            one_removed = False
+            for one_result in result_found:
+                if not one_removed and isinstance(one_result, list) and one_result:
+                    for result in one_result:
+                        for die in dice_roll:
+                            if result == die:
+                                dice_roll.remove(die)
+                                one_removed = True
+                                break
+        else:
+            result_found = find_combination(dice_roll, combination)
+            if not has_combination(dice_roll, combination):
+                any_problem = True
+            if isinstance(result_found, list) and result_found:
+                for result in result_found:
+                    for die in dice_roll:
+                        if result == die:
+                            dice_roll.remove(die)
+                            break
+    return not any_problem
+
+
+# ---------------------------------------------------------------------------
+# Combinaciones predefinidas (legacy — usadas en dice_roller original)
+# ---------------------------------------------------------------------------
+
+def get_pairs_combination() -> list:
+    return [[v, v] for v in range(1, 7)]
+
+
+def get_smallers_combination() -> list:
+    return [[1], [2], [3]]
+
+
+def get_pairs_combination_plus_another_combination(second_dice_combination) -> list:
+    return [second_dice_combination, get_pairs_combination()]
