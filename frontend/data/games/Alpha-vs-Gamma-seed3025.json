@@ -1,0 +1,174 @@
+{
+  "game_id": "Alpha-vs-Gamma-seed3025",
+  "team_a": "Alpha",
+  "team_b": "Gamma",
+  "seed": 3025,
+  "winner": "Alpha",
+  "total_turns": 2,
+  "is_draw": false,
+  "turns": [
+    {
+      "n": 1,
+      "attacker": "Alpha",
+      "dice": {
+        "green": [
+          1,
+          5,
+          3,
+          2
+        ],
+        "red": 5
+      },
+      "assignments": [
+        {
+          "ability": "Doble corte",
+          "hero": 0,
+          "dice_used": [
+            3,
+            5
+          ]
+        },
+        {
+          "ability": "Disparo",
+          "hero": 1,
+          "dice_used": [
+            5
+          ]
+        }
+      ],
+      "damage_total": 19,
+      "defense_dice": [
+        4,
+        6,
+        4
+      ],
+      "defense_blocked": 3,
+      "damage_dealt": 16,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 15,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 6,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 1,
+      "attacker": "Gamma",
+      "dice": {
+        "green": [
+          6,
+          3,
+          5,
+          6
+        ],
+        "red": 3
+      },
+      "assignments": [
+        {
+          "ability": "Lanza",
+          "hero": 1,
+          "dice_used": [
+            3
+          ]
+        },
+        {
+          "ability": "Bloqueo",
+          "hero": 0,
+          "dice_used": [
+            5
+          ]
+        }
+      ],
+      "damage_total": 11,
+      "defense_dice": [
+        1,
+        4
+      ],
+      "defense_blocked": 1,
+      "damage_dealt": 10,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 5,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 6,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "attacker": "Alpha",
+      "dice": {
+        "green": [
+          3,
+          4,
+          1,
+          5
+        ],
+        "red": 2
+      },
+      "assignments": [
+        {
+          "ability": "Doble corte",
+          "hero": 0,
+          "dice_used": [
+            3,
+            2
+          ]
+        },
+        {
+          "ability": "Disparo",
+          "hero": 1,
+          "dice_used": [
+            5
+          ]
+        }
+      ],
+      "damage_total": 16,
+      "defense_dice": [
+        5,
+        5,
+        3
+      ],
+      "defense_blocked": 2,
+      "damage_dealt": 14,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 5,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 0,
+          "diamonds": 0,
+          "shields": 3,
+          "statuses": [],
+          "items": []
+        }
+      }
+    }
+  ]
+}

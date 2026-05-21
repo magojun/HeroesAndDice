@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-05-21T19:44:02+00:00",
+  "n_games_per_matchup": 100,
+  "imbalance_threshold": 0.65,
+  "ranking": [
+    {
+      "team": "Alpha",
+      "winrate": 0.6533,
+      "games": 300,
+      "rank": 1
+    },
+    {
+      "team": "Gamma",
+      "winrate": 0.57,
+      "games": 300,
+      "rank": 2
+    },
+    {
+      "team": "Beta",
+      "winrate": 0.5267,
+      "games": 300,
+      "rank": 3
+    },
+    {
+      "team": "Delta",
+      "winrate": 0.25,
+      "games": 300,
+      "rank": 4
+    }
+  ],
+  "matchups": [
+    {
+      "team_a": "Alpha",
+      "team_b": "Beta",
+      "n_games": 100,
+      "winrate_a": 0.69,
+      "winrate_b": 0.31,
+      "draw_rate": 0.0,
+      "avg_turns": 1.11,
+      "avg_hp_winner": 10.64,
+      "avg_hp_a": 9.32,
+      "avg_hp_b": 1.32,
+      "imbalance_flag": true
+    },
+    {
+      "team_a": "Alpha",
+      "team_b": "Delta",
+      "n_games": 100,
+      "winrate_a": 0.66,
+      "winrate_b": 0.34,
+      "draw_rate": 0.0,
+      "avg_turns": 1.52,
+      "avg_hp_winner": 7.34,
+      "avg_hp_a": 5.37,
+      "avg_hp_b": 1.97,
+      "imbalance_flag": true
+    },
+    {
+      "team_a": "Alpha",
+      "team_b": "Gamma",
+      "n_games": 100,
+      "winrate_a": 0.61,
+      "winrate_b": 0.39,
+      "draw_rate": 0.0,
+      "avg_turns": 2.06,
+      "avg_hp_winner": 6.15,
+      "avg_hp_a": 3.84,
+      "avg_hp_b": 2.31,
+      "imbalance_flag": false
+    },
+    {
+      "team_a": "Beta",
+      "team_b": "Delta",
+      "n_games": 100,
+      "winrate_a": 0.74,
+      "winrate_b": 0.26,
+      "draw_rate": 0.0,
+      "avg_turns": 1.08,
+      "avg_hp_winner": 9.32,
+      "avg_hp_a": 8.18,
+      "avg_hp_b": 1.14,
+      "imbalance_flag": true
+    },
+    {
+      "team_a": "Beta",
+      "team_b": "Gamma",
+      "n_games": 100,
+      "winrate_a": 0.53,
+      "winrate_b": 0.47,
+      "draw_rate": 0.0,
+      "avg_turns": 1.39,
+      "avg_hp_winner": 7.2,
+      "avg_hp_a": 3.63,
+      "avg_hp_b": 3.57,
+      "imbalance_flag": false
+    },
+    {
+      "team_a": "Gamma",
+      "team_b": "Delta",
+      "n_games": 100,
+      "winrate_a": 0.85,
+      "winrate_b": 0.15,
+      "draw_rate": 0.0,
+      "avg_turns": 2.04,
+      "avg_hp_winner": 8.58,
+      "avg_hp_a": 8.01,
+      "avg_hp_b": 0.57,
+      "imbalance_flag": true
+    }
+  ]
+}

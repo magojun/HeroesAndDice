@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-05-21T19:44:02+00:00",
+  "games": [
+    {
+      "game_id": "Alpha-vs-Beta-seed2024",
+      "team_a": "Alpha",
+      "team_b": "Beta",
+      "seed": 2024,
+      "winner": "Alpha",
+      "total_turns": 1,
+      "is_draw": false
+    },
+    {
+      "game_id": "Alpha-vs-Beta-seed2025",
+      "team_a": "Alpha",
+      "team_b": "Beta",
+      "seed": 2025,
+      "winner": "Alpha",
+      "total_turns": 2,
+      "is_draw": false
+    },
+    {
+      "game_id": "Alpha-vs-Gamma-seed3024",
+      "team_a": "Alpha",
+      "team_b": "Gamma",
+      "seed": 3024,
+      "winner": "Gamma",
+      "total_turns": 2,
+      "is_draw": false
+    },
+    {
+      "game_id": "Alpha-vs-Gamma-seed3025",
+      "team_a": "Alpha",
+      "team_b": "Gamma",
+      "seed": 3025,
+      "winner": "Alpha",
+      "total_turns": 2,
+      "is_draw": false
+    },
+    {
+      "game_id": "Alpha-vs-Delta-seed4024",
+      "team_a": "Alpha",
+      "team_b": "Delta",
+      "seed": 4024,
+      "winner": "Alpha",
+      "total_turns": 2,
+      "is_draw": false
+    },
+    {
+      "game_id": "Alpha-vs-Delta-seed4025",
+      "team_a": "Alpha",
+      "team_b": "Delta",
+      "seed": 4025,
+      "winner": "Alpha",
+      "total_turns": 1,
+      "is_draw": false
+    },
+    {
+      "game_id": "Beta-vs-Gamma-seed5024",
+      "team_a": "Beta",
+      "team_b": "Gamma",
+      "seed": 5024,
+      "winner": "Gamma",
+      "total_turns": 2,
+      "is_draw": false
+    },
+    {
+      "game_id": "Beta-vs-Gamma-seed5025",
+      "team_a": "Beta",
+      "team_b": "Gamma",
+      "seed": 5025,
+      "winner": "Gamma",
+      "total_turns": 2,
+      "is_draw": false
+    },
+    {
+      "game_id": "Beta-vs-Delta-seed6024",
+      "team_a": "Beta",
+      "team_b": "Delta",
+      "seed": 6024,
+      "winner": "Beta",
+      "total_turns": 1,
+      "is_draw": false
+    },
+    {
+      "game_id": "Beta-vs-Delta-seed6025",
+      "team_a": "Beta",
+      "team_b": "Delta",
+      "seed": 6025,
+      "winner": "Beta",
+      "total_turns": 1,
+      "is_draw": false
+    },
+    {
+      "game_id": "Gamma-vs-Delta-seed7024",
+      "team_a": "Gamma",
+      "team_b": "Delta",
+      "seed": 7024,
+      "winner": "Delta",
+      "total_turns": 2,
+      "is_draw": false
+    },
+    {
+      "game_id": "Gamma-vs-Delta-seed7025",
+      "team_a": "Gamma",
+      "team_b": "Delta",
+      "seed": 7025,
+      "winner": "Delta",
+      "total_turns": 3,
+      "is_draw": false
+    }
+  ]
+}

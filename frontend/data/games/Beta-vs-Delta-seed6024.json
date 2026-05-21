@@ -1,0 +1,78 @@
+{
+  "game_id": "Beta-vs-Delta-seed6024",
+  "team_a": "Beta",
+  "team_b": "Delta",
+  "seed": 6024,
+  "winner": "Beta",
+  "total_turns": 1,
+  "is_draw": false,
+  "turns": [
+    {
+      "n": 1,
+      "attacker": "Beta",
+      "dice": {
+        "green": [
+          2,
+          2,
+          2,
+          4
+        ],
+        "red": 2
+      },
+      "assignments": [
+        {
+          "ability": "Furia",
+          "hero": 0,
+          "dice_used": [
+            2
+          ]
+        },
+        {
+          "ability": "Embate",
+          "hero": 0,
+          "dice_used": [
+            2
+          ]
+        },
+        {
+          "ability": "Embate",
+          "hero": 0,
+          "dice_used": [
+            2
+          ]
+        },
+        {
+          "ability": "Embate",
+          "hero": 0,
+          "dice_used": [
+            2
+          ]
+        }
+      ],
+      "damage_total": 22,
+      "defense_dice": [
+        1,
+        4
+      ],
+      "defense_blocked": 1,
+      "damage_dealt": 21,
+      "statuses_applied": [],
+      "state_after": {
+        "team_a": {
+          "hp": 12,
+          "diamonds": 0,
+          "shields": 0,
+          "statuses": [],
+          "items": []
+        },
+        "team_b": {
+          "hp": 0,
+          "diamonds": 0,
+          "shields": 2,
+          "statuses": [],
+          "items": []
+        }
+      }
+    }
+  ]
+}

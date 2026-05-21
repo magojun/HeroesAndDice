@@ -39,6 +39,15 @@ class TurnContext:
     used_ability_names: set[str] = field(default_factory=set)
     # Fichas de estado aplicadas al defensor durante este turno
     statuses_applied: list[StatusToken] = field(default_factory=list)
+    # --- Observables para el tracer (G3) ---
+    # Asignaciones decididas por la política: (ability_name, hero_idx, dice_indices)
+    assignments: list = field(default_factory=list)
+    # Caras tiradas en la fase de defensa
+    defense_dice: list[int] = field(default_factory=list)
+    # Cuántos de esos dados bloquearon (4/5/6)
+    defense_blocked: int = 0
+    # Daño neto efectivamente aplicado al defensor (después de defensa y FREEZE)
+    damage_dealt: int = 0
 
 
 # ---------------------------------------------------------------------------
@@ -122,6 +131,7 @@ class TurnEngine:
             return
 
         assignments = policy.assign_dice(ctx)
+        ctx.assignments = assignments
 
         for ability_name, hero_idx, dice_indices in assignments:
             if hero_idx >= len(ctx.attacker.heroes):
@@ -214,13 +224,17 @@ class TurnEngine:
         self._apply_active_items(ctx, policy, phase="combat")
 
         # Fase de defensa: 1 dado por escudo (máx 3); 4/5/6 bloquea 1 daño
-        defended = self._roll_defense(ctx.defender)
+        defense_dice, defended = self._roll_defense_detailed(ctx.defender)
+        ctx.defense_dice = defense_dice
+        ctx.defense_blocked = defended
 
         # FREEZE: el defensor congela → no puede tirar dados de defensa
         if ctx.defender.has_status(StatusEffect.FREEZE):
             defended = 0
+            ctx.defense_blocked = 0
 
         net = max(0, total - defended)
+        ctx.damage_dealt = net
         ctx.defender.take_damage(net)
 
     def _compute_status_damage(self, team: Team) -> int:
@@ -236,8 +250,15 @@ class TurnEngine:
 
     def _roll_defense(self, defender: Team) -> int:
         """1 dado por escudo (máx 3). Cada 4/5/6 bloquea 1 daño."""
+        _, blocked = self._roll_defense_detailed(defender)
+        return blocked
+
+    def _roll_defense_detailed(self, defender: Team) -> tuple[list[int], int]:
+        """Versión observable: devuelve (dados_tirados, cantidad_bloqueada)."""
         num_dice = min(defender.shields, 3)
-        return sum(1 for _ in range(num_dice) if random.randint(1, 6) >= 4)
+        rolled = [random.randint(1, 6) for _ in range(num_dice)]
+        blocked = sum(1 for r in rolled if r >= 4)
+        return rolled, blocked
 
     # ------------------------------------------------------------------
     # Fase 5 — Compra y uso de objetos (B5)
