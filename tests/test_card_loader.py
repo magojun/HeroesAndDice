@@ -35,11 +35,25 @@ def test_hero_has_skills_and_passives():
 
 
 def test_hero_confirmar_tolerated():
+    """El loader tolera el campo confirmar:true sin crashear y lo expone como bool.
+
+    No asumimos cuántas entradas hay con confirmar:true (van bajando a medida
+    que el usuario las valida). Sólo verificamos que el campo se respeta cuando
+    está presente, y que skills sin costo solo se aceptan si están marcadas
+    confirmar (o ya transcriptas).
+    """
     heroes = load_heroes()
-    fyraz = next(h for h in heroes if h.id == "fyraz")
-    skills_with_confirmar = [s for s in fyraz.habilidades if s.confirmar]
-    assert len(skills_with_confirmar) > 0
-    assert all(s.costo is not None or s.confirmar for s in fyraz.habilidades)
+    # El campo confirmar siempre debe ser bool (default False)
+    for h in heroes:
+        for s in h.habilidades:
+            assert isinstance(s.confirmar, bool)
+            # Skills con costo=None deben estar marcadas confirmar
+            # (o ser tolerablemente ambiguas — política del proyecto)
+            if s.costo is None:
+                assert s.confirmar, (
+                    f"Skill «{s.nombre}» de {h.nombre} tiene costo=None "
+                    f"pero no está marcada confirmar:true"
+                )
 
 
 def test_skill_with_null_costo_tolerated():
