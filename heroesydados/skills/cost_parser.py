@@ -107,10 +107,11 @@ def _parse_group(raw: str) -> Optional[CostGroup]:
     # else: COLOR_ANY (dado multicolor / comodín)
 
     # --- Constraint ---
-    if "pares" in sl:
-        group.constraint = CONSTRAINT_PARES
-    elif "impares" in sl or "impar " in sl or sl.endswith("impar"):
+    # IMPORTANTE: chequear "impares" antes que "pares" (substring match)
+    if "impares" in sl or "impar " in sl or sl.endswith("impar"):
         group.constraint = CONSTRAINT_IMPARES
+    elif "pares" in sl:
+        group.constraint = CONSTRAINT_PARES
     elif "iguales" in sl:
         group.constraint = CONSTRAINT_IGUALES
     elif "consecutivos" in sl or "consecutivo" in sl:
